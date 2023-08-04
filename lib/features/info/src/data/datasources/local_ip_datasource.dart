@@ -1,11 +1,11 @@
 import 'package:my_ip_info/features/info/src/data/exception/ip_not_found_in_device_exception.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class RemoteIpDatasource {
+class LocalIpDatasource {
   static const _ipKey = 'ip';
   final SharedPreferences sp;
 
-  RemoteIpDatasource({
+  LocalIpDatasource({
     required this.sp,
   });
 
