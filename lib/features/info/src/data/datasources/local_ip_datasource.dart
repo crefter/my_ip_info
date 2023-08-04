@@ -1,16 +1,16 @@
+import 'package:my_ip_info/core/app_sp_constants.dart';
 import 'package:my_ip_info/features/info/src/data/exception/ip_not_found_in_device_exception.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalIpDatasource {
-  static const _ipKey = 'ip';
-  final SharedPreferences sp;
+  final SharedPreferences _sp;
 
   LocalIpDatasource({
-    required this.sp,
-  });
+    required SharedPreferences sp,
+  }) : _sp = sp;
 
   Future<String> getIp() async {
-    String ip = sp.getString(_ipKey) ?? '';
+    String ip = _sp.getString(AppSpConstants.ipKey) ?? '';
     if (ip.isEmpty) {
       throw IpNotFoundInDeviceException('Ip not found in device!');
     }
@@ -18,6 +18,6 @@ class LocalIpDatasource {
   }
 
   Future<void> saveIp(String ip) async {
-    await sp.setString(_ipKey, ip);
+    await _sp.setString(AppSpConstants.ipKey, ip);
   }
 }
