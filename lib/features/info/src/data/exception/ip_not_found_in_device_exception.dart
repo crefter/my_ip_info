@@ -1,5 +1,5 @@
-class IpNotFoundInDeviceException implements Exception {
-  final String message;
+import 'package:my_ip_info/core/exception/abstract_exception.dart';
 
-  IpNotFoundInDeviceException(this.message);
+class IpNotFoundInDeviceException extends AbstractException {
+  IpNotFoundInDeviceException(super.message);
 }
