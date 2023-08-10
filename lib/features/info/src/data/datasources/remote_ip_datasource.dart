@@ -5,13 +5,12 @@ class RemoteIpDatasource {
 
   RemoteIpDatasource({
     required Dio dio,
-  }) : _dio = dio {
-    dio.options
-      ..baseUrl = "https://api.ipify.org"
-      ..queryParameters = {'format': 'json'};
-  }
+  }) : _dio = dio;
 
   Future<String> getIp() async {
+    _dio.options
+      ..baseUrl = "https://api.ipify.org"
+      ..queryParameters = {'format': 'json'};
     final result = await _dio.get('');
     final ip = result.data['ip'];
     return ip;

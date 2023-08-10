@@ -6,14 +6,13 @@ class RemoteUserInformationDatasource {
 
   RemoteUserInformationDatasource({
     required Dio dio,
-  }) : _dio = dio {
-    _dio.options
-      ..baseUrl = 'http://ip-api.com/json'
-      ..queryParameters = {'fields': '12775167'};
-  }
+  }) : _dio = dio;
 
   Future<UserInformation> getUserInformation(String ip) async {
-    final result = await _dio.get(ip);
+    _dio.options
+      ..baseUrl = 'http://ip-api.com/json'
+      ..queryParameters = {'fields': '8544511'};
+    final result = await _dio.get('/$ip');
     final UserInformation userInformation =
         UserInformation.fromJson(result.data);
     return userInformation;
