@@ -18,16 +18,7 @@ class MainScreen extends StatelessWidget {
         builder: (innerContext, child) {
           final router = AutoTabsRouter.of(innerContext);
           return Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: child,
-                  ),
-                ),
-              ],
-            ),
+            body: child,
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: router.activeIndex,
               onTap: (index) => router.setActiveIndex(index),

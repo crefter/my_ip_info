@@ -10,10 +10,6 @@ class UserInformation {
     required this.lat,
     required this.lon,
     required this.currency,
-    required this.isp,
-    required this.org,
-    required this.as,
-    required this.asName,
     required this.proxy,
     required this.query,
   });
@@ -30,10 +26,6 @@ class UserInformation {
       lat: json['lat'],
       lon: json['lon'],
       currency: json['currency'],
-      isp: json['isp'],
-      org: json['org'],
-      as: json['as'],
-      asName: json['asname'],
       proxy: json['proxy'],
       query: json['query'],
     );
@@ -49,10 +41,6 @@ class UserInformation {
   final double lat;
   final double lon;
   final String currency;
-  final String isp;
-  final String org;
-  final String as;
-  final String asName;
   final bool proxy;
   final String query;
 
@@ -68,10 +56,6 @@ class UserInformation {
     map['lat'] = lat;
     map['lon'] = lon;
     map['currency'] = currency;
-    map['isp'] = isp;
-    map['org'] = org;
-    map['as'] = as;
-    map['asname'] = asName;
     map['proxy'] = proxy;
     map['query'] = query;
     return map;
@@ -92,10 +76,6 @@ class UserInformation {
           lat == other.lat &&
           lon == other.lon &&
           currency == other.currency &&
-          isp == other.isp &&
-          org == other.org &&
-          as == other.as &&
-          asName == other.asName &&
           proxy == other.proxy &&
           query == other.query;
 
@@ -111,10 +91,6 @@ class UserInformation {
       lat.hashCode ^
       lon.hashCode ^
       currency.hashCode ^
-      isp.hashCode ^
-      org.hashCode ^
-      as.hashCode ^
-      asName.hashCode ^
       proxy.hashCode ^
       query.hashCode;
 }
