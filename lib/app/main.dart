@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_ip_info/app/router/router.dart';
 
-void main() {
+import 'di.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 

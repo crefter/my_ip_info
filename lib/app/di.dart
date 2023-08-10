@@ -14,37 +14,45 @@ import 'package:shared_preferences/shared_preferences.dart';
 DI di = DI();
 
 class DI {
-  Dio get dio => Dio();
+  late Dio dio;
 
   late SharedPreferences sp;
 
-  Connectivity get connectivity => Connectivity();
+  late Connectivity connectivity; // Connectivity();
 
-  CheckInternetService get checkInternetService =>
-      CheckInternetService(connectivity: connectivity);
+  late CheckInternetService
+      checkInternetService; //CheckInternetService(connectivity: connectivity);
 
-  RemoteIpDatasource get remoteIpDatasource => RemoteIpDatasource(dio: dio);
+  late RemoteIpDatasource remoteIpDatasource; //RemoteIpDatasource(dio: dio);
 
-  LocalIpDatasource get localIpDatasource => LocalIpDatasource(sp: sp);
+  late LocalIpDatasource localIpDatasource; // LocalIpDatasource(sp: sp);
 
-  RemoteUserInformationDatasource get remoteUserInfDatasource =>
-      RemoteUserInformationDatasource(dio: dio);
+  late RemoteUserInformationDatasource remoteUserInfDatasource;
 
-  LocalUserInformationDatasource get localUserInfDatasource =>
-      LocalUserInformationDatasource(sp: sp);
+  late LocalUserInformationDatasource localUserInfDatasource;
 
-  IpRepository get ipRepository => IpRepositoryImpl(
+  late IpRepository ipRepository;
+
+  late UserInformationRepository userInformationRepository;
+
+  Future<void> init() async {
+    dio = Dio();
+    connectivity = Connectivity();
+    checkInternetService = CheckInternetService(connectivity: connectivity);
+    sp = await SharedPreferences.getInstance();
+    remoteIpDatasource = RemoteIpDatasource(dio: dio);
+    localIpDatasource = LocalIpDatasource(sp: sp);
+    remoteUserInfDatasource = RemoteUserInformationDatasource(dio: dio);
+    localUserInfDatasource = LocalUserInformationDatasource(sp: sp);
+    ipRepository = IpRepositoryImpl(
       remoteIpDatasource: remoteIpDatasource,
       localIpDatasource: localIpDatasource,
-      checkInternetService: checkInternetService);
-
-  UserInformationRepository get userInformationRepository =>
-      UserInformationRepositoryImpl(
-          remoteDatasource: remoteUserInfDatasource,
-          localDatasource: localUserInfDatasource,
-          checkInternetService: checkInternetService);
-
-  DI() {
-    SharedPreferences.getInstance().then((value) => sp = value);
+      checkInternetService: checkInternetService,
+    );
+    userInformationRepository = UserInformationRepositoryImpl(
+      remoteDatasource: remoteUserInfDatasource,
+      localDatasource: localUserInfDatasource,
+      checkInternetService: checkInternetService,
+    );
   }
 }
