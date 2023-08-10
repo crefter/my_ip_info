@@ -21,7 +21,7 @@ class UserInformationWidget extends StatelessWidget {
             ),
           UserInformationLoaded(userInformation: var userInformation) => Column(
               children: [
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [
                     userInformation.country,
                     userInformation.countryCode
@@ -29,7 +29,7 @@ class UserInformationWidget extends StatelessWidget {
                   description: 'Country',
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [
                     userInformation.regionName,
                     userInformation.region
@@ -37,12 +37,12 @@ class UserInformationWidget extends StatelessWidget {
                   description: 'Region',
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [userInformation.city, userInformation.zip],
                   description: 'City',
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [userInformation.currency],
                   description: 'Currency',
                 ),
@@ -57,9 +57,8 @@ class UserInformationWidget extends StatelessWidget {
   }
 }
 
-class CenteredRowWidget extends StatelessWidget {
-  const CenteredRowWidget({
-    super.key,
+class _CenteredRowWidget extends StatelessWidget {
+  const _CenteredRowWidget({
     required this.textRows,
     required this.description,
   });

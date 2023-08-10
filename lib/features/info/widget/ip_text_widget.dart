@@ -35,6 +35,9 @@ class IpTextWidget extends StatelessWidget {
                     ),
                   ],
                 ),
+              IpError(message: var message) => Center(
+                  child: Text(message),
+                ),
             };
           },
         ),
