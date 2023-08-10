@@ -46,58 +46,6 @@ class UserInformationWidget extends StatelessWidget {
                   textRows: [userInformation.currency],
                   description: 'Currency',
                 ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
-                ),
               ],
             ),
           UserInformationError(error: String error) => Center(
