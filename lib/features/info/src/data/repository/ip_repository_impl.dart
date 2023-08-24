@@ -1,7 +1,7 @@
 import 'package:my_ip_info/features/info/src/data/datasources/local_ip_datasource.dart';
 import 'package:my_ip_info/features/info/src/data/datasources/remote_ip_datasource.dart';
 import 'package:my_ip_info/features/info/src/domain/repository/ip_repository.dart';
-import 'package:my_ip_info/features/info/src/service/check_internet_service.dart';
+import 'package:my_ip_info/core/service/check_internet_service.dart';
 
 class IpRepositoryImpl implements IpRepository {
   final RemoteIpDatasource remoteIpDatasource;
