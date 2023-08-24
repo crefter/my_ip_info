@@ -35,10 +35,10 @@ class RouteRepositoryImpl implements RouteRepository {
       final (double lat, double lon) userPosition =
           await _geolocatorService.getPosition();
       final route = await _remoteRouteDatasource.getRoute(
-        ipPosition.$1,
-        ipPosition.$2,
         userPosition.$1,
         userPosition.$2,
+        ipPosition.$1,
+        ipPosition.$2,
       );
       return route;
     } else {

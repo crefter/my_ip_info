@@ -17,7 +17,7 @@ class RemoteRouteDatasource {
   ) async {
     try {
       final res = await _client.get(Uri.https('routing.openstreetmap.de',
-          'routed-car/route/v1/driving/1,2;1,3'));
+          'routed-car/route/v1/driving/$lonFrom,$latFrom;$lonTo,$latTo'));
       final body = utf8.decode(res.bodyBytes);
       final Map<String, dynamic> bodyJson = jsonDecode(body);
       if (res.statusCode != 200) {
