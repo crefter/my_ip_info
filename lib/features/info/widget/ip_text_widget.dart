@@ -27,11 +27,11 @@ class IpTextWidget extends StatelessWidget {
                   children: [
                     Text(
                       'My ip: ',
-                      style: Theme.of(context).textTheme.description,
+                      style: Theme.of(context).textTheme.header,
                     ),
                     Text(
                       ip,
-                      style: Theme.of(context).textTheme.description,
+                      style: Theme.of(context).textTheme.header,
                     ),
                   ],
                 ),

@@ -72,7 +72,7 @@ class _CenteredRowWidget extends StatelessWidget {
       children: [
         Text(
           '$description:',
-          style: Theme.of(context).textTheme.description,
+          style: Theme.of(context).textTheme.header,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
