@@ -20,8 +20,22 @@ class MapWidget extends StatelessWidget {
           ) =>
             _FlutterMap(coords: coords, distance: distance),
           RouteError(message: var message) => Center(
-              child: Text(
-                message,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    message,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<RouteBloc>().add(RouteLoad());
+                    },
+                    child: const Text('Retry'),
+                  ),
+                ],
               ),
             ),
           _ => const CircularProgressIndicator.adaptive(),
@@ -75,7 +89,10 @@ class _FlutterMap extends StatelessWidget {
                   point: coords.decodeFirstCoordinates(),
                   builder: (ctx) => Column(
                     children: [
-                      Text('You', style: Theme.of(context).textTheme.header,),
+                      Text(
+                        'You',
+                        style: Theme.of(context).textTheme.header,
+                      ),
                       const Icon(
                         Icons.location_on_outlined,
                         color: Colors.green,
