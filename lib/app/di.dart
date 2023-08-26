@@ -26,14 +26,13 @@ class DI {
 
   late SharedPreferences sp;
 
-  late Connectivity connectivity; // Connectivity();
+  late Connectivity connectivity;
 
-  late CheckInternetService
-      checkInternetService; //CheckInternetService(connectivity: connectivity);
+  late CheckInternetService checkInternetService;
 
-  late RemoteIpDatasource remoteIpDatasource; //RemoteIpDatasource(dio: dio);
+  late RemoteIpDatasource remoteIpDatasource;
 
-  late LocalIpDatasource localIpDatasource; // LocalIpDatasource(sp: sp);
+  late LocalIpDatasource localIpDatasource;
 
   late RemoteUserInformationDatasource remoteUserInfDatasource;
 
@@ -71,7 +70,6 @@ class DI {
       localDatasource: localUserInfDatasource,
       checkInternetService: checkInternetService,
     );
-
     remoteRouteDatasource = RemoteRouteDatasource(client: client);
     localUserPositionDatasource = LocalUserPositionDatasource(sp: sp);
     geolocatorService = GeolocatorService();

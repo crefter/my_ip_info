@@ -3,13 +3,7 @@ import 'package:my_ip_info/features/map/src/exception/geolocation_denied_excepti
 
 class GeolocatorService {
   Future<(double lat, double lon)> getPosition() async {
-    bool serviceEnabled;
     LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      throw GeolocationDeniedException('Location services are disabled.');
-    }
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -23,5 +17,10 @@ class GeolocatorService {
     }
     final position = await Geolocator.getCurrentPosition();
     return (position.latitude, position.longitude);
+  }
+
+  Future<bool> isServiceEnabled() async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    return serviceEnabled;
   }
 }

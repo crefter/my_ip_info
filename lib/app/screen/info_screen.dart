@@ -27,12 +27,14 @@ class InfoScreen extends StatelessWidget {
         )
       ],
       child: Scaffold(
-        appBar: AppBar(title: const Row(
-          children: [
-            Icon(Icons.person_outline),
-            Text('Ip info'),
-          ],
-        ),),
+        appBar: AppBar(
+          title: const Row(
+            children: [
+              Icon(Icons.person_outline),
+              Text('Ip info'),
+            ],
+          ),
+        ),
         body: const CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: IpTextWidget()),
