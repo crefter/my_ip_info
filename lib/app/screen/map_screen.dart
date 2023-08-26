@@ -12,9 +12,18 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<RouteBloc>(
-      create: (_) =>
-          RouteBloc(repository: di.routeRepository)..add(RouteLoad()),
+      create: (_) => RouteBloc(
+        repository: di.routeRepository,
+      )..add(RouteLoad()),
       child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Icon(Icons.map_outlined),
+              Text('Map'),
+            ],
+          ),
+        ),
         body: Center(
           child: MapWidget(),
         ),
