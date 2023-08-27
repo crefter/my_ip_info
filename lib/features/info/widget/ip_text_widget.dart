@@ -11,6 +11,7 @@ class IpTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 32),
         BlocConsumer<IpBloc, IpState>(
           listener: (context, state) {
             if (state is IpLoaded) {
@@ -26,7 +27,7 @@ class IpTextWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'My ip: ',
+                      'My IP: ',
                       style: Theme.of(context).textTheme.header,
                     ),
                     Text(
@@ -51,7 +52,8 @@ class IpTextWidget extends StatelessWidget {
               _ => const SizedBox.shrink(),
             };
           },
-        )
+        ),
+        const SizedBox(height: 16),
       ],
     );
   }

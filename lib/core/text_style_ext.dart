@@ -5,4 +5,9 @@ extension TextStyleExt on TextTheme {
         fontWeight: FontWeight.w700,
         fontSize: 18,
       );
+
+  TextStyle get mainText => const TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      );
 }

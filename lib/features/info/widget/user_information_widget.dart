@@ -24,7 +24,7 @@ class UserInformationWidget extends StatelessWidget {
                 _CenteredRowWidget(
                   textRows: [
                     userInformation.country,
-                    userInformation.countryCode
+                    userInformation.countryCode,
                   ],
                   description: 'Country',
                 ),
@@ -32,18 +32,23 @@ class UserInformationWidget extends StatelessWidget {
                 _CenteredRowWidget(
                   textRows: [
                     userInformation.regionName,
-                    userInformation.region
+                    userInformation.region,
                   ],
                   description: 'Region',
                 ),
                 const SizedBox(height: _gapBetweenElements),
                 _CenteredRowWidget(
-                  textRows: [userInformation.city, userInformation.zip],
+                  textRows: [
+                    userInformation.city,
+                    userInformation.zip,
+                  ],
                   description: 'City',
                 ),
                 const SizedBox(height: _gapBetweenElements),
                 _CenteredRowWidget(
-                  textRows: [userInformation.currency],
+                  textRows: [
+                    userInformation.currency,
+                  ],
                   description: 'Currency',
                 ),
               ],
@@ -77,7 +82,10 @@ class _CenteredRowWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(textRows.join(', ')),
+            Text(
+              textRows.join(', '),
+              style: Theme.of(context).textTheme.mainText,
+            ),
           ],
         ),
       ],
