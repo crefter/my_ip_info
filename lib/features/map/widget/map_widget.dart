@@ -4,6 +4,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:my_ip_info/core/extensions.dart';
 import 'package:my_ip_info/core/text_style_ext.dart';
+import 'package:my_ip_info/core/theme_widget.dart';
 import 'package:my_ip_info/features/map/src/bloc/route_bloc.dart';
 
 class MapWidget extends StatelessWidget {
@@ -68,9 +69,28 @@ class _FlutterMap extends StatelessWidget {
           ),
           children: [
             TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'zarechnev.max.my_ip_info',
-            ),
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'zarechnev.max.my_ip_info',
+                tileBuilder: (context, tileWidget, tile) {
+                  return ValueListenableBuilder(
+                    builder: (context, themeMode, child) {
+                      return themeMode == ThemeMode.light
+                          ? tileWidget
+                          : ColorFiltered(
+                              colorFilter: const ColorFilter.matrix(
+                                <double>[
+                                  -1.0, 0.0, 0.0, 0.0, 255.0, //
+                                  0.0, -1.0, 0.0, 0.0, 255.0, //
+                                  0.0, 0.0, -1.0, 0.0, 255.0, //
+                                  0.0, 0.0, 0.0, 1.0, 0.0, //
+                                ],
+                              ),
+                              child: tileWidget,
+                            );
+                    },
+                    valueListenable: ThemeWidget.of(context).themeMode,
+                  );
+                }),
             PolylineLayer(
               polylines: [
                 Polyline(
