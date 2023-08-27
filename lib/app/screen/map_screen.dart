@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_ip_info/app/di.dart';
+import 'package:my_ip_info/core/widgets/theme_mode_button.dart';
 import 'package:my_ip_info/features/map/src/bloc/route_bloc.dart';
 import 'package:my_ip_info/features/map/widget/map_widget.dart';
 
@@ -17,14 +18,17 @@ class MapScreen extends StatelessWidget {
       )..add(RouteLoad()),
       child: Scaffold(
         appBar: AppBar(
-          title: Row(
+          title: const Row(
             children: [
               Icon(Icons.map_outlined),
               Text('Map'),
             ],
           ),
+          actions: const [
+            ThemeModeButton(),
+          ],
         ),
-        body: Center(
+        body: const Center(
           child: MapWidget(),
         ),
       ),
