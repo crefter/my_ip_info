@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_ip_info/core/text_style_ext.dart';
 import 'package:my_ip_info/features/info/src/bloc/user_information/user_information_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const double _gapBetweenElements = 12.0;
 
@@ -12,6 +13,7 @@ class UserInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UserInformationBloc, UserInformationState>(
       builder: (_, state) {
+        var appLocalizations = AppLocalizations.of(context);
         return switch (state) {
           UserInformationInitial() => const Center(
               child: CircularProgressIndicator(),
@@ -21,30 +23,35 @@ class UserInformationWidget extends StatelessWidget {
             ),
           UserInformationLoaded(userInformation: var userInformation) => Column(
               children: [
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [
                     userInformation.country,
-                    userInformation.countryCode
+                    userInformation.countryCode,
                   ],
-                  description: 'Country',
+                  description: appLocalizations.country,
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
+                _CenteredRowWidget(
                   textRows: [
                     userInformation.regionName,
-                    userInformation.region
+                    userInformation.region,
                   ],
-                  description: 'Region',
+                  description: appLocalizations.region,
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
-                  textRows: [userInformation.city, userInformation.zip],
-                  description: 'City',
+                _CenteredRowWidget(
+                  textRows: [
+                    userInformation.city,
+                    userInformation.zip,
+                  ],
+                  description: appLocalizations.city,
                 ),
                 const SizedBox(height: _gapBetweenElements),
-                CenteredRowWidget(
-                  textRows: [userInformation.currency],
-                  description: 'Currency',
+                _CenteredRowWidget(
+                  textRows: [
+                    userInformation.currency,
+                  ],
+                  description: appLocalizations.currency,
                 ),
               ],
             ),
@@ -57,9 +64,8 @@ class UserInformationWidget extends StatelessWidget {
   }
 }
 
-class CenteredRowWidget extends StatelessWidget {
-  const CenteredRowWidget({
-    super.key,
+class _CenteredRowWidget extends StatelessWidget {
+  const _CenteredRowWidget({
     required this.textRows,
     required this.description,
   });
@@ -73,12 +79,15 @@ class CenteredRowWidget extends StatelessWidget {
       children: [
         Text(
           '$description:',
-          style: Theme.of(context).textTheme.description,
+          style: Theme.of(context).textTheme.header,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(textRows.join(', ')),
+            Text(
+              textRows.join(', '),
+              style: Theme.of(context).textTheme.mainText,
+            ),
           ],
         ),
       ],

@@ -2,7 +2,7 @@ import 'package:my_ip_info/features/info/src/data/datasources/local_user_informa
 import 'package:my_ip_info/features/info/src/data/datasources/remote_user_information_datasource.dart';
 import 'package:my_ip_info/features/info/src/domain/entity/user_information.dart';
 import 'package:my_ip_info/features/info/src/domain/repository/user_information_repository.dart';
-import 'package:my_ip_info/features/info/src/service/check_internet_service.dart';
+import 'package:my_ip_info/core/service/check_internet_service.dart';
 
 class UserInformationRepositoryImpl implements UserInformationRepository {
   final RemoteUserInformationDatasource _remoteDatasource;

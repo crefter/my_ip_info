@@ -1,0 +1,60 @@
+{
+  "appTitle" : "My IP Info",
+  "@appTitle" : {
+    "description": "The title of application"
+  },
+  "titleAppBarInfoPage" : "Ip info",
+  "@titleAppBarInfoPage" : {
+    "description" : "The title of information page"
+  },
+  "titleAppBarMapPage" : "Map",
+  "@titleAppBarMapPage" : {
+    "description" : "The title of map page"
+  },
+  "titleBNBInfoPage" : "Information",
+  "@titleBNBInfoPage" : {
+    "description" : "The title of bottom nav bar of information page"
+  },
+  "titleBNBMapPage" : "Map",
+  "@titleBNBMapPage" : {
+    "description" : "The title of bottom nav bar of map page"
+  },
+  "ip" : "My IP",
+  "@ip" : {
+    "description" : "Text before ip"
+  },
+  "country" : "Country",
+  "@country" : {
+    "description" : "Text before country name"
+  },
+  "region" : "Region",
+  "@region" : {
+    "description" : "Text before region name"
+  },
+  "city" : "City",
+  "@city" : {
+    "description" : "Text before city name"
+  },
+  "currency" : "Currency",
+  "@currency" : {
+    "description" : "Text before currency name"
+  },
+  "distance" : "Distance from you to IP: {ip} km",
+  "@distance" : {
+    "description" : "Text before distance",
+    "placeholders": {
+      "ip": {
+        "type": "String",
+        "example": "101.25"
+      }
+    }
+  },
+  "you" : "You",
+  "@you" : {
+    "description" : "Text describes 'you'"
+  },
+  "retry" : "Retry",
+  "@retry" : {
+    "description" : "The title of retry button"
+  }
+}

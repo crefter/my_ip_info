@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:my_ip_info/app/router/router.gr.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class MainScreen extends StatelessWidget {
@@ -22,16 +23,16 @@ class MainScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: router.activeIndex,
               onTap: (index) => router.setActiveIndex(index),
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.info_outline,
                   ),
-                  label: 'Information',
+                  label: AppLocalizations.of(context).titleBNBInfoPage,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.map_outlined),
-                  label: 'Map',
+                  icon: const Icon(Icons.map_outlined),
+                  label: AppLocalizations.of(context).titleBNBMapPage,
                 ),
               ],
             ),

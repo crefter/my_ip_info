@@ -20,3 +20,21 @@ class IpLoaded extends IpState {
   @override
   int get hashCode => ip.hashCode;
 }
+
+class IpError extends IpState {
+  final String message;
+
+  IpError({
+    required this.message,
+  });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is IpError &&
+          runtimeType == other.runtimeType &&
+          message == other.message;
+
+  @override
+  int get hashCode => message.hashCode;
+}
