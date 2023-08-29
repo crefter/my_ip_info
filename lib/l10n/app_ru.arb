@@ -1,0 +1,15 @@
+{
+  "appTitle" : "Мой IP",
+  "titleAppBarInfoPage" : "Информация по IP",
+  "titleAppBarMapPage" : "Карта",
+  "titleBNBInfoPage" : "Информация",
+  "titleBNBMapPage" : "Карта",
+  "ip" : "Мой IP",
+  "country" : "Страна",
+  "region" : "Регион",
+  "city" : "Город",
+  "currency" : "Валюта",
+  "distance" : "Расстояние от вас до IP: {ip} км",
+  "you" : "Вы",
+  "retry" : "Повторить"
+}
