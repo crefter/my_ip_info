@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_ip_info/core/text_style_ext.dart';
 import 'package:my_ip_info/features/info/src/bloc/user_information/user_information_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const double _gapBetweenElements = 12.0;
 
@@ -12,6 +13,7 @@ class UserInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UserInformationBloc, UserInformationState>(
       builder: (_, state) {
+        var appLocalizations = AppLocalizations.of(context);
         return switch (state) {
           UserInformationInitial() => const Center(
               child: CircularProgressIndicator(),
@@ -26,7 +28,7 @@ class UserInformationWidget extends StatelessWidget {
                     userInformation.country,
                     userInformation.countryCode,
                   ],
-                  description: 'Country',
+                  description: appLocalizations.country,
                 ),
                 const SizedBox(height: _gapBetweenElements),
                 _CenteredRowWidget(
@@ -34,7 +36,7 @@ class UserInformationWidget extends StatelessWidget {
                     userInformation.regionName,
                     userInformation.region,
                   ],
-                  description: 'Region',
+                  description: appLocalizations.region,
                 ),
                 const SizedBox(height: _gapBetweenElements),
                 _CenteredRowWidget(
@@ -42,14 +44,14 @@ class UserInformationWidget extends StatelessWidget {
                     userInformation.city,
                     userInformation.zip,
                   ],
-                  description: 'City',
+                  description: appLocalizations.city,
                 ),
                 const SizedBox(height: _gapBetweenElements),
                 _CenteredRowWidget(
                   textRows: [
                     userInformation.currency,
                   ],
-                  description: 'Currency',
+                  description: appLocalizations.currency,
                 ),
               ],
             ),

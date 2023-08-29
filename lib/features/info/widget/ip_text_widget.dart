@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_ip_info/core/text_style_ext.dart';
 import 'package:my_ip_info/features/info/src/bloc/ip/ip_bloc.dart';
 import 'package:my_ip_info/features/info/src/bloc/user_information/user_information_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IpTextWidget extends StatelessWidget {
   const IpTextWidget({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class IpTextWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'My IP: ',
+                      "${AppLocalizations.of(context).ip}: ",
                       style: Theme.of(context).textTheme.header,
                     ),
                     Text(

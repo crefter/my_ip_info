@@ -5,6 +5,7 @@ import 'package:my_ip_info/app/di.dart';
 import 'package:my_ip_info/core/widgets/theme_mode_button.dart';
 import 'package:my_ip_info/features/map/src/bloc/route_bloc.dart';
 import 'package:my_ip_info/features/map/widget/map_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class MapScreen extends StatelessWidget {
@@ -18,10 +19,10 @@ class MapScreen extends StatelessWidget {
       )..add(RouteLoad()),
       child: Scaffold(
         appBar: AppBar(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(Icons.map_outlined),
-              Text('Map'),
+              const Icon(Icons.map_outlined),
+              Text(AppLocalizations.of(context).titleAppBarMapPage),
             ],
           ),
           actions: const [

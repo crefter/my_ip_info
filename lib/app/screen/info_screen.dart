@@ -7,6 +7,7 @@ import 'package:my_ip_info/features/info/src/bloc/ip/ip_bloc.dart';
 import 'package:my_ip_info/features/info/src/bloc/user_information/user_information_bloc.dart';
 import 'package:my_ip_info/features/info/widget/ip_text_widget.dart';
 import 'package:my_ip_info/features/info/widget/user_information_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class InfoScreen extends StatelessWidget {
@@ -29,10 +30,10 @@ class InfoScreen extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(Icons.person_outline),
-              Text('Ip info'),
+              const Icon(Icons.person_outline),
+              Text(AppLocalizations.of(context).titleAppBarInfoPage),
             ],
           ),
           actions: const [

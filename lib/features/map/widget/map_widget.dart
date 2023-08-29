@@ -6,6 +6,7 @@ import 'package:my_ip_info/core/extensions.dart';
 import 'package:my_ip_info/core/text_style_ext.dart';
 import 'package:my_ip_info/core/theme_widget.dart';
 import 'package:my_ip_info/features/map/src/bloc/route_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MapWidget extends StatelessWidget {
   const MapWidget({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class MapWidget extends StatelessWidget {
                     onPressed: () {
                       context.read<RouteBloc>().add(RouteLoad());
                     },
-                    child: const Text('Retry'),
+                    child: Text(AppLocalizations.of(context).retry),
                   ),
                 ],
               ),
@@ -57,6 +58,7 @@ class _FlutterMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context);
     return Stack(
       children: [
         FlutterMap(
@@ -110,7 +112,7 @@ class _FlutterMap extends StatelessWidget {
                   builder: (ctx) => Column(
                     children: [
                       Text(
-                        'You',
+                        appLocalizations.you,
                         style: Theme.of(context).textTheme.header,
                       ),
                       const Icon(
@@ -144,7 +146,7 @@ class _FlutterMap extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Text(
-            'Distance from you to ip: ${distance.toStringAsFixed(2)} km',
+            appLocalizations.distance(distance.toStringAsFixed(2)),
             style: Theme.of(context).textTheme.header,
           ),
         ),

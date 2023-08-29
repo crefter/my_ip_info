@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_ip_info/app/router/router.dart';
 import 'package:my_ip_info/core/theme_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'di.dart';
 
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
           valueListenable: ThemeWidget.of(context).themeMode,
           builder: (context, themeMode, _) {
             return MaterialApp.router(
-              title: 'Flutter Demo',
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
               theme: ThemeData.light(
                 useMaterial3: true,
               ),
